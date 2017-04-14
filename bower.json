@@ -1,0 +1,9 @@
+{
+  "name": "andrular-js-quiz",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "^1.6.0",
+    "bootstrap-sass": "^3.3.7",
+    "lodash": "^4.17.2"
+  }
+}

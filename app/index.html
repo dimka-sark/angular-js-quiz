@@ -1,0 +1,106 @@
+<!doctype html>
+<html ng-app="andrular-js-quiz" ng-controller="BaseCtrl">
+  <head>
+    <meta charset="utf-8">
+    <title>andrular-js-quiz</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+    <!-- endinject -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/app.css -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="app-container">
+        <div class="todo-header col-md-12">
+            <h3>To Do List</h3>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{isActiveList ? "Active" : "Done"}}
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" ng-click="isActiveList = true">Active</a></li>
+                    <li><a href="#" ng-click="isActiveList = false">Done</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="col-md-5 col-sm-7 col-xs-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="order-column">#</th>
+                    <th>Task Name</th>
+                    <th class="remove-column"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="task in tasks">
+                    <td class="order-column">{{$index + 1}}</td>
+                    <td>{{::task.name}}</td>
+                    <td class="remove-column">
+
+                        <input type="checkbox" ng-model="task.selected">
+                        <a ng-click="removeTask(task)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="btn-group col-md-12" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" ng-click="selectAll()">Select All</button>
+            <button type="button" class="btn" ng-click="deleteSelected()" ng-class="{'btn-danger' : isActiveList, 'btn-success': !isActiveList}">
+                {{isActiveList ? "Delete" : "Return" }} Selected
+            </button>
+            <button type="button" class="btn" ng-click="deleteAll()"  ng-class="{'btn-danger' : isActiveList, 'btn-success': !isActiveList}">
+                {{isActiveList ? "Delete" : "Return" }} All
+            </button>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-5 col-sm-7 col-xs-12" ng-show="isActiveList">
+            <h3>Add new Task</h3>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    Name:
+                </span>
+                <input type="text" class="form-control" aria-label="..." ng-model="newTaskName">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-disabled="!newTaskName"
+                            ng-click="addNewTask()">Add</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Add your site or application content here -->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- endinject -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/main.js -->
+    <!-- inject:js -->
+    <!-- endinject -->
+    <!-- endbuild -->
+
+  </body>
+</html>

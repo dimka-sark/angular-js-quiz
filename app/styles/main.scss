@@ -1,0 +1,33 @@
+$icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
+// bower:scss
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+
+.app-container {
+  padding: 10px;
+}
+
+.select-column{
+  width: 50px;
+}
+.remove-column{
+  width: 55px;
+  input{
+    margin-right: 5px;
+  }
+}
+
+.order-column{
+  width: 50px;
+}
+
+.todo-header {
+  h3 {
+    display: inline-block;
+  }
+  .dropdown {
+    display: inline-block;
+    margin-left: 5px;
+    bottom: 5px;
+  }
+}
